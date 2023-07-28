@@ -1,0 +1,38 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// generates client for prisma in TS
+generator client {
+  provider = "prisma-client-js"
+}
+
+// generates zod schemas for db models
+generator zod {
+  provider = "zod-prisma"
+  output   = "./zod"
+}
+
+// // generates docs for prisma using
+// generator docs {
+//   provider = "node node_modules/prisma-docs-generator"
+//   output   = "docs"
+// }
+
+// // generates svg file with db schema
+// generator erd {
+//   provider = "prisma-erd-generator"
+//   output   = "schema.svg"
+// }
+
+model User {
+  id Int @id @default(autoincrement())
+
+  wallet  String  @unique
+  email   String?
+  removed Boolean @default(true)
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+}
