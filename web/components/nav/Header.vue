@@ -11,8 +11,8 @@
       <nav v-if="!sm" class="gap-100px flex items-center justify-between text-white">
         <BaseInputSelect :options="rounds" v-model="model" class="w-143px" />
         <!-- TODO: back vesting -->
-        <!-- <a href="https://gotbit-kwe-vesting-frontend-qa.test.gotbit.app/"> Vesting </a> -->
-        <span class="cursor-not-allowed opacity-50"> Vesting </span>
+        <a href="https://vesting.kwe.network"> Vesting </a>
+        <!-- <span class="cursor-not-allowed opacity-50"> Vesting </span> -->
       </nav>
       <div v-if="!login && !sm">
         <BaseButton
